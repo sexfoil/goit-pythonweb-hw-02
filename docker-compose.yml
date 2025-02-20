@@ -1,0 +1,35 @@
+version: '1'
+
+services:
+  postgres:
+    image: postgres:17.3
+    environment:
+      POSTGRES_DB: hw2_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 567234
+    ports:
+      - "5432:5432"
+    container_name: app_posgres_db
+    restart: always
+    networks:
+      - hw2-network
+    volumes:
+      - hw2dbdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    container_name: web_app
+    restart: always
+    networks:
+      - hw2-network
+    depends_on:
+      - postgres
+
+networks:
+  hw2-network:
+    driver: bridge
+
+volumes:
+  hw2dbdata:
