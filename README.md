@@ -4,14 +4,8 @@ Home work in scope of Fullstack Web Development with Python module
 
 # ДЗ Тема: Основи технології Docker
 
-Створіть віртуальне оточення то встановіть необхідні бібліотеки
+Для запуску контейнера у корні проєкту введіть наступну команду:
 
 ```bash
-pip install -r requirements.txt
-```
-
-Запуск:
-
-```bash
-python main.py
+docker-compose up --build -d
 ```
